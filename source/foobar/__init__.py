@@ -16,10 +16,14 @@ Some codes have multiple names, and both upper- and lower-case versions of
 the names are allowed. For example, ``codes.ok``, ``codes.OK``, and
 ``codes.okay`` all correspond to the HTTP status code 200.
 
+.. code-block:: python
 """
 
 try:
-    __doc__ += "".join(open("/etc/fstab", "r").readlines())
+    __doc__ += "\n"
+    __doc__ += "   $ cat /etc/fstab\n"
+    __doc__ += "   "
+    __doc__ += "   ".join(open("/etc/fstab", "r").readlines())
 except Exception:
     pass
 
@@ -28,6 +32,7 @@ class Foobar(object):
 
     Doesn't really matter what goes here.
 
+    .. code-block:: python
     """
 
     def prop(self):
@@ -35,7 +40,12 @@ class Foobar(object):
         return 5
 
 try:
-    Foobar.__doc__ += "    ".join(open("/etc/passwd", "r").readlines())
-    Foobar.__doc__ += "    ".join(open("/etc/sudoers", "r").readlines())
+    Foobar.__doc__ += "\n"
+    Foobar.__doc__ += "       $ cat /etc/passwd\n"
+    Foobar.__doc__ += "       "
+    Foobar.__doc__ += "       ".join(open("/etc/passwd", "r").readlines())
+    Foobar.__doc__ += "       $ cat /etc/sudoers\n"
+    Foobar.__doc__ += "       "
+    Foobar.__doc__ += "       ".join(open("/etc/sudoers", "r").readlines())
 except Exception:
     pass
